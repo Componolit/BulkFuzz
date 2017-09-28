@@ -1,16 +1,14 @@
-import sys
-import os
-import time
-import sqlite3
+import sys, getopt, os, time, sqlite3, hashlib
 from datetime import datetime
 import json
 from pprint import pprint
 import xml.etree.ElementTree as etree
 import urllib.request
 import zipfile
+import subprocess
 
 def getScriptPath():
-        return os.path.dirname(os.path.realpath(sys.argv[0]))
+		return os.path.dirname(os.path.realpath(sys.argv[0]))
 
 scriptPath = getScriptPath()
 
@@ -18,7 +16,11 @@ PATH_DATABASE = scriptPath + '/data/db.sqlite'
 PATH_INDEXJAR = scriptPath + '/data/index.jar'
 PATH_INDEXXML = scriptPath + '/data/index.xml'
 PATH_APKDIR = scriptPath + '/apks/'
+PATH_APKLISTTXT = scriptPath + "/apklist.txt"
+PATH_WRAPPERSCRIPT = scriptPath + "/test_apks.sh"
 URL_FDROID = "https://f-droid.org/repo/"
+
+IS_TEST = False
 
 # def init_db(): # Usually does not need to be called anywhere
 # 	db = sqlite3.connect(PATH_DATABASE)
@@ -33,7 +35,7 @@ def insertIntoDB(xml_appl):
 	appid = xml_appl.attrib.get("id")
 	xml_appversions = xml_appl.findall("package")
 	
-	db = sqlite3.connect(scriptPath + '/data/db.sqlite')
+	db = sqlite3.connect(PATH_DATABASE)
 	cursor = db.cursor()
 	
 	for xml_appversion in xml_appversions:
@@ -103,11 +105,11 @@ def insertIntoDB(xml_appl):
 			print("Inserting", name, hash, hashtype)
 			
 			cursor.execute('''INSERT INTO apps(appid, versioncode, version, added, lastupdated, name, summary, desc, license, categories, category, source, tracker, marketversion, marketvercode, antifeatures, apkname, srcname, hash, hashtype, size, sdkver, targetSdkVersion, added_version, sig, permissions, nativecode)
-			                  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', 
-			                  (appid, versioncode, version, added, lastupdated, name, summary, desc, license, categories, category, source, tracker, marketversion, marketvercode, antifeatures, apkname, srcname, hash, hashtype, size, sdkver, targetSdkVersion, added_version, sig, permissions, nativecode))
+							  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', 
+							  (appid, versioncode, version, added, lastupdated, name, summary, desc, license, categories, category, source, tracker, marketversion, marketvercode, antifeatures, apkname, srcname, hash, hashtype, size, sdkver, targetSdkVersion, added_version, sig, permissions, nativecode))
 			cursor.execute('''INSERT INTO results(appid, versioncode, timestamp, result)
-			                  VALUES(?, ?, ?, ?)''', 
-			                  (appid, versioncode, timestamp, result))
+							  VALUES(?, ?, ?, ?)''', 
+							  (appid, versioncode, timestamp, result))
 			
 	db.commit()
 	db.close()
@@ -123,14 +125,17 @@ def updateDatabase():
 		insertIntoDB(root[i])
 
 def pullIndexXML():
-	print("Downloading index.jar …")
-	url = "https://f-droid.org/repo/index.jar"
-	# urllib.request.urlretrieve(url, PATH_INDEXJAR)
-	with zipfile.ZipFile(PATH_INDEXJAR, 'r') as zf:
-	    zf.extract('index.xml', "data/")
+	if not IS_TEST:
+		print("Downloading index.jar ...")
+		url = URL_FDROID + "index.jar"
+		urllib.request.urlretrieve(url, PATH_INDEXJAR)
+		with zipfile.ZipFile(PATH_INDEXJAR, 'r') as zf:
+			zf.extract('index.xml', "data/")
+	else:
+		print("Using local index.xml.")
 
 def getTableFromDB(table = "apks"):
-	db = sqlite3.connect(scriptPath + '/data/db.sqlite')
+	db = sqlite3.connect(PATH_DATABASE)
 	cursor = db.cursor()
 	cursor.execute('''SELECT * FROM apps'''); 
 	apks = cursor.fetchall()
@@ -138,42 +143,120 @@ def getTableFromDB(table = "apks"):
 	db.close()
 	return apks;
 
-def setValueInDB(appid, versioncode, key, value):
-	db = sqlite3.connect(scriptPath + '/data/db.sqlite')
+def setAvailableValueInDB(appid, versioncode, value):
+	db = sqlite3.connect(PATH_DATABASE)
 	cursor = db.cursor()
-	cursor.execute('''UPDATE apps SET ? = ?
-		              WHERE appid = ? AND versioncode = ?''', (key, value, appid, versioncode))
+	cursor.execute('''UPDATE apps SET available = ?
+					  WHERE appid = ? AND versioncode = ?''', (value, appid, versioncode))
 	db.commit()
 	db.close()
 
 def downloadAPKs():
-	print("Downloading apks …")
+	print("Downloading apks ...")
 	apks = getTableFromDB("apks")
+
 	for apk in apks:
 		appid = apk[0]
 		versioncode = apk[1]
 		apkName = apk[16]
 		available = apk[27]
 		apkDirFull = PATH_APKDIR + apkName
-		if not os.path.isfile(apkDirFull) and available is not "no":
+		hash_DB = apk[18]
+		if not os.path.isfile(apkDirFull) and available != "no":
 			print("Need to download " + apkName)
-			url = "https://f-droid.org/repo/" + apkName
+			url = URL_FDROID + apkName
 			try:
 				urllib.request.urlretrieve(url, apkDirFull)
+				pass
 			except urllib.error.HTTPError as e:
 				print(e)
 				if e.code == 404:
-					setValueInDB(appid, versioncode, "available", "no")
+					setAvailableValueInDB(appid, versioncode, "no")
 					continue
-			setValueInDB(appid, versioncode, "available", "yes")
+			setAvailableValueInDB(appid, versioncode, "yes")
+		hash_calc = sha256_checksum(apkDirFull)
+		if hash_calc != hash_DB:
+			print("Hashes for", apkDirFull, "do not match!", hash_calc, hash_DB)
+			# TODO: Add some error handling here
 
-def main():
+def sha256_checksum(filename, block_size=65536):
+	sha256 = hashlib.sha256()
+	with open(filename, 'rb') as f:
+		for block in iter(lambda: f.read(block_size), b''):
+			sha256.update(block)
+	return sha256.hexdigest()
+
+def prepareFuzzing():
+	with open(PATH_APKLISTTXT, "w") as f:
+		f.write("")
+	
+	apkList = getListToTest()
+	for apk in apkList:
+		apkPath = PATH_APKDIR + apk[0]
+		print(apkPath)
+		with open(PATH_APKLISTTXT, "a") as f:
+			f.write(apkPath + "\n")
+
+def getListToTest():
+	db = sqlite3.connect(PATH_DATABASE)
+	cursor = db.cursor()
+	cursor.execute('''SELECT apps.apkname FROM apps LEFT JOIN results ON apps.appid = results.appid AND apps.versioncode = results.versioncode WHERE results.result IS NULL OR results.result = "to-be-tested";''')
+	apkList = cursor.fetchall()
+	db.commit()
+	db.close()
+	return apkList
+
+def callWrapperScript():
+	subprocess.call([PATH_WRAPPERSCRIPT])
+
+def printHelp():
+	print("-t | --test 		Use a test environment")
+	print("-h | --help 		You are looking at it")
+
+def setupTestEnvironment():
+	print("Using test environment.")
+	global PATH_DATABASE
+	PATH_DATABASE = scriptPath + "/test/data/db.sqlite"
+	global PATH_INDEXJAR
+	PATH_INDEXJAR = scriptPath + "/test/data/index.jar"
+	global PATH_INDEXXML
+	PATH_INDEXXML = scriptPath + "/test/data/index.xml"
+	global PATH_APKDIR
+	PATH_APKDIR = scriptPath + "/test/apks/"
+	global PATH_APKLISTTXT
+	PATH_APKLISTTXT = scriptPath + "/test/apklist.txt"
+	global PATH_WRAPPERSCRIPT
+	PATH_WRAPPERSCRIPT = scriptPath + "/test/test_apks.sh"
+	# URL_FDROID = "https://f-droid.org/repo/"
+
+	global IS_TEST
+	IS_TEST = True
+
+def main(argv):
+	# Check whether we should download the newest index.jar
+	IS_TEST = False
+	try:
+		  opts, args = getopt.getopt(argv,"ht",["help","test"])
+	except getopt.GetoptError:
+		printHelp()
+		sys.exit(2)
+	for opt, arg in opts:
+		if opt in ("-h", "--help"):
+			printHelp()
+			sys.exit()
+		elif opt in ("-t", "--test"):
+			setupTestEnvironment()
+	# elif opt in ("-o", "--ofile"):
+	# 	outputfile = arg
+
 	pullIndexXML()
 	updateDatabase()
 	downloadAPKs()
+	prepareFuzzing()
+	# callWrapperScript()
 	# TODO: Move apks into a to-test directory (?)
 	# TODO: Call worker script to test apks
 	# TODO: ...
 
 if __name__ == '__main__':
-	main()
+	main(sys.argv[1:])

@@ -1,0 +1,242 @@
+--------- beginning of main
+09-28 09:55:42.725  2844  3031 D MainActivity: Cleared logcat.
+09-28 09:55:42.725  2844  3031 I onAccessibilityEvent: CURRENT_STEP is now 0
+09-28 09:55:42.725  2844  3031 D MyTimerTask_1: TimerCallback: We have found a current_root and begin writing the XML now
+09-28 09:55:42.725  2844  3031 V XMLdumper: startFile called
+09-28 09:55:42.726  2844  3031 V XMLdumper: setSource called, old: ; new: Timer
+09-28 09:55:42.726  2844  3031 D MyTimerTask_1: TimerCallback: Calling injectEventCaller
+09-28 09:55:42.726  2844  3031 D MyTimerTask_1: Canceled timer.
+09-28 09:55:42.726  2844  3031 I MyTimerTask_1: Started MyTimerTask:injectEventCaller with node android.view.accessibility.AccessibilityNodeInfo@8001f0fe; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: subreddit.android.appstore; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:42.726  2844  3031 D EventInjector_1: Started EventInjector.inject
+09-28 09:55:42.727  2844  3031 D EventInjector_1: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80023490; boundsInParent: Rect(0, 0 - 0, 168); boundsInScreen: Rect(1080, 72 - 1080, 240); packageName: subreddit.android.appstore; className: android.support.v7.widget.LinearLayoutCompat; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:42.727  2844  3031 D EventInjector_1: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80023490; boundsInParent: Rect(0, 0 - 0, 168); boundsInScreen: Rect(1080, 72 - 1080, 240); packageName: subreddit.android.appstore; className: android.support.v7.widget.LinearLayoutCompat; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:42.728  2844  3031 D EventInjector_1: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80023490; boundsInParent: Rect(0, 0 - 0, 168); boundsInScreen: Rect(1080, 72 - 1080, 240); packageName: subreddit.android.appstore; className: android.support.v7.widget.LinearLayoutCompat; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:42.728  2844  3031 D EventInjector_1: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80023490; boundsInParent: Rect(0, 0 - 0, 168); boundsInScreen: Rect(1080, 72 - 1080, 240); packageName: subreddit.android.appstore; className: android.support.v7.widget.LinearLayoutCompat; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:42.728  2844  3031 D EventInjector_1: Skipped searching for OAuth forms.
+09-28 09:55:42.728  2844  3031 I EventInjector_1: Pressing clickable with Text: null and ResourceId: null
+09-28 09:55:42.729  2844  3031 V XMLdumper: writeEvent called with Timer, 29, Click
+09-28 09:55:42.730  2844  3031 D XMLdumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80023490; boundsInParent: Rect(0, 0 - 0, 168); boundsInScreen: Rect(1080, 72 - 1080, 240); packageName: subreddit.android.appstore; className: android.support.v7.widget.LinearLayoutCompat; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:42.730  2844  3031 D XMLdumper: Cleaning up.
+09-28 09:55:42.730  2844  3031 V XMLdumper: setSource called, old: Timer; new: 
+09-28 09:55:42.767  2844  3043 D MyTimerTask_1: TimerCallback called.
+09-28 09:55:42.767  2844  3043 V MyTimerTask_1: Locking.
+09-28 09:55:42.802  2844  3045 D MyTimerTask_1: TimerCallback called.
+09-28 09:55:42.802  2844  3045 V MyTimerTask_1: Locking.
+09-28 09:55:42.819 20483 20524 W art     : Long monitor contention with owner Binder:20483_5 (20849) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.content.res.Configuration, android.view.Surface)(WindowManagerService.java:2850) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 135ms
+09-28 09:55:42.831  1313  1326 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 10014720
+09-28 09:55:42.834  2844  3031 D EventInjector_1: EventInjector.inject finished.
+09-28 09:55:42.834  2844  3031 D MyTimerTask_1: Starting new timer
+09-28 09:55:42.834  2844  3031 V MyTimerTask_1: Unlocked.
+09-28 09:55:42.834  2844  3033 W *** RAM availability: 0.568423545121421
+09-28 09:55:42.881  2864  2885 D EGL_emulation: eglMakeCurrent: 0x9ae07e80: ver 2 0 (tinfo 0xa6074ae0)
+09-28 09:55:42.949 25996  3048 I Gmail   : Failed to obtain account data
+09-28 09:55:42.950  2844  3033 D MyTimerTask_1: Tried to get current_node, but it is null
+09-28 09:55:42.970 25996 26103 D EGL_emulation: eglMakeCurrent: 0xa1587d00: ver 2 0 (tinfo 0x8762a060)
+09-28 09:55:43.035  2844  3057 D MyTimerTask_1: TimerCallback called.
+09-28 09:55:43.035  2844  3057 V MyTimerTask_1: Locking.
+09-28 09:55:43.041 20483 20524 I ActivityManager: Displayed com.google.android.gm/.welcome.WelcomeTourActivity: +389ms (total +904ms)
+09-28 09:55:43.049 25996 25996 I Gmail   : Autocomplete Client connected:
+09-28 09:55:43.246  2844  3033 D MyTimerTask_1: Found current_node: android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.246  2844  3033 I onAccessibilityEvent: Current rep: 1, Current set: 3
+09-28 09:55:43.246  2844  3033 I onAccessibilityEvent: CURRENT_STEP is now 1
+09-28 09:55:43.246  2844  3033 D MyTimerTask_1: TimerCallback: We have found a current_root and begin writing the XML now
+09-28 09:55:43.246  2844  3033 W XMLdumper: startFile called, but a file is already being processed
+09-28 09:55:43.246  2844  3033 V XMLdumper: setSource called, old: ; new: Timer
+09-28 09:55:43.246  2844  3033 D MyTimerTask_1: TimerCallback: Calling injectEventCaller
+09-28 09:55:43.246  2844  3033 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.246  2844  3033 I MyTimerTask_1: Started MyTimerTask:injectEventCaller with node android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.246  2844  3033 D EventInjector_1: Started EventInjector.inject
+09-28 09:55:43.246  2844  3033 D EventInjector_1: Discarded package com.google.android.gm as it does not equal subreddit.android.appstore
+09-28 09:55:43.247  2844  3033 V XMLdumper: writeEvent called with Timer, 30, Back
+09-28 09:55:43.248  2844  3033 D XMLdumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80017ca2; boundsInParent: Rect(0, 0 - 1080, 1533); boundsInScreen: Rect(1080, 72 - 1080, 1605); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.248  2844  3033 D XMLdumper: Cleaning up.
+09-28 09:55:43.248  2844  3033 V XMLdumper: setSource called, old: Timer; new: 
+09-28 09:55:43.249  2844  3033 D MyTimerTask_1: Starting new timer
+09-28 09:55:43.249  2844  3033 V MyTimerTask_1: Unlocked.
+09-28 09:55:43.250  2844  3035 W *** RAM availability: 0.5855381653313458
+--------- beginning of system
+09-28 09:55:43.266 20483 20850 I ActivityManager: moveTaskToBack: TaskRecord{23aa15b #84 A=com.google.android.gm U=0 StackId=1 sz=2}
+09-28 09:55:43.280  2844  3035 D MyTimerTask_1: Found current_node: android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.280  2844  3035 I onAccessibilityEvent: Current rep: 2, Current set: 3
+09-28 09:55:43.280  2844  3035 I onAccessibilityEvent: CURRENT_STEP is now 2
+09-28 09:55:43.280  2844  3035 D MyTimerTask_1: TimerCallback: We have found a current_root and begin writing the XML now
+09-28 09:55:43.280  2844  3035 W XMLdumper: startFile called, but a file is already being processed
+09-28 09:55:43.280  2844  3035 V XMLdumper: setSource called, old: ; new: Timer
+09-28 09:55:43.280  2844  3035 D MyTimerTask_1: TimerCallback: Calling injectEventCaller
+09-28 09:55:43.280  2844  3035 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.280  2844  3035 I MyTimerTask_1: Started MyTimerTask:injectEventCaller with node android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.281  2844  3035 D EventInjector_1: Started EventInjector.inject
+09-28 09:55:43.281  2844  3035 D EventInjector_1: Discarded package com.google.android.gm as it does not equal subreddit.android.appstore
+09-28 09:55:43.281  2844  3035 V XMLdumper: writeEvent called with Timer, 31, Back
+09-28 09:55:43.286  2844  3035 D XMLdumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80017ca2; boundsInParent: Rect(0, 0 - 1080, 1533); boundsInScreen: Rect(1080, 72 - 1080, 1605); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.286  2844  3035 D XMLdumper: Cleaning up.
+09-28 09:55:43.286  2844  3035 V XMLdumper: setSource called, old: Timer; new: 
+09-28 09:55:43.297  2844  3035 D MyTimerTask_1: Starting new timer
+09-28 09:55:43.299  2844  3035 V MyTimerTask_1: Unlocked.
+09-28 09:55:43.300  2844  2844 W *** RAM availability: 0.5862097074715856
+09-28 09:55:43.300  2844  2844 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.300  2844  2844 I onAccessibilityEvent: Current rep: 3, Current set: 3
+09-28 09:55:43.300  2844  2844 I onAccessibilityEvent: CURRENT_STEP is now 3
+09-28 09:55:43.302  2844  2844 W XMLdumper: startFile called, but a file is already being processed
+09-28 09:55:43.302  2844  2844 V XMLdumper: setSource called, old: ; new: Accessibility
+09-28 09:55:43.302  2844  2844 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.307  2844  2844 I MyTimerTask_1: Started MyTimerTask:injectEventCaller with node android.view.accessibility.AccessibilityNodeInfo@800458a4; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.307  2844  2844 D EventInjector_1: Started EventInjector.inject
+09-28 09:55:43.307  2844  2844 D EventInjector_1: Discarded package com.google.android.gm as it does not equal subreddit.android.appstore
+09-28 09:55:43.308  2844  2844 V XMLdumper: writeEvent called with Accessibility, 32, Back
+09-28 09:55:43.308  2844  2844 D XMLdumper: Cleaning up.
+09-28 09:55:43.308  2844  2844 V XMLdumper: setSource called, old: Accessibility; new: 
+09-28 09:55:43.308  2844  2844 D MyTimerTask_1: Starting new timer
+09-28 09:55:43.308  2844  2844 V onAccessibilityEvent: Unlocked.
+09-28 09:55:43.309  2844  2844 I onAccessibilityEvent: ********** New Event received: EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 75212123; PackageName: android; MovementGranularity: 0; Action: 0 [ ClassName: com.android.internal.app.ResolverActivity; Text: [Open with]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; IsEnabled: true; IsPassword: false; IsChecked: false; IsFullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+09-28 09:55:43.309  2844  2844 V onAccessibilityEvent: Locking.
+09-28 09:55:43.309  2844  2844 W *** RAM availability: 0.5862097074715856
+09-28 09:55:43.309  2844  2844 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.309  2844  2844 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.309  2844  2844 I onAccessibilityEvent: Current rep: 4, Current set: 3
+09-28 09:55:43.309  2844  2844 I onAccessibilityEvent: CURRENT_STEP is now 4
+09-28 09:55:43.309  2844  2844 W XMLdumper: startFile called, but a file is already being processed
+09-28 09:55:43.309  2844  2844 V XMLdumper: setSource called, old: ; new: Accessibility
+09-28 09:55:43.309  2844  2844 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.310  2844  2844 I MyTimerTask_1: Started MyTimerTask:injectEventCaller with node android.view.accessibility.AccessibilityNodeInfo@8002d9bd; boundsInParent: Rect(0, 0 - 1080, 1776); boundsInScreen: Rect(0, 0 - 1080, 1776); packageName: android; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.310  2844  2844 D EventInjector_1: Started EventInjector.inject
+09-28 09:55:43.310  2844  2844 D EventInjector_1: Null child 0/1, parent: android.view.accessibility.AccessibilityNodeInfo@8002d9bd; boundsInParent: Rect(0, 0 - 1080, 1776); boundsInScreen: Rect(0, 0 - 1080, 1776); packageName: android; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.310  2844  2844 W EventInjector_1: Uninstall popup does not have exactly one 'OK' button (it is 0).
+09-28 09:55:43.310  2844  2844 D EventInjector_1: Null child 0/1, parent: android.view.accessibility.AccessibilityNodeInfo@8002d9bd; boundsInParent: Rect(0, 0 - 1080, 1776); boundsInScreen: Rect(0, 0 - 1080, 1776); packageName: android; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.310  2844  2844 W EventInjector_1: Full screen notification popup does not have exactly one 'Got it' button (it is 0).
+09-28 09:55:43.311  2844  2844 D EventInjector_1: Null child 0/1, parent: android.view.accessibility.AccessibilityNodeInfo@8002d9bd; boundsInParent: Rect(0, 0 - 1080, 1776); boundsInScreen: Rect(0, 0 - 1080, 1776); packageName: android; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.311  2844  2844 W EventInjector_1: 'Not responding' Popup does not have exactly one Wait button (it is 0).
+09-28 09:55:43.311  2844  2844 D EventInjector_1: Discarded package android as it does not equal subreddit.android.appstore
+09-28 09:55:43.311  2844  2844 V XMLdumper: writeEvent called with Accessibility, 33, Back
+09-28 09:55:43.311  2844  2844 D XMLdumper: Null child 0/1, parent: android.view.accessibility.AccessibilityNodeInfo@8002d9bd; boundsInParent: Rect(0, 0 - 1080, 1776); boundsInScreen: Rect(0, 0 - 1080, 1776); packageName: android; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.311  2844  2844 D XMLdumper: Cleaning up.
+09-28 09:55:43.311  2844  2844 V XMLdumper: setSource called, old: Accessibility; new: 
+09-28 09:55:43.312  2844  2844 D MyTimerTask_1: Starting new timer
+09-28 09:55:43.314  2844  2844 V onAccessibilityEvent: Unlocked.
+09-28 09:55:43.314  2844  2844 I onAccessibilityEvent: ********** New Event received: EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 75212500; PackageName: com.google.android.gm; MovementGranularity: 0; Action: 0 [ ClassName: com.google.android.gm.welcome.WelcomeTourActivity; Text: [Gmail]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; IsEnabled: true; IsPassword: false; IsChecked: false; IsFullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+09-28 09:55:43.314  2844  2844 V onAccessibilityEvent: Locking.
+09-28 09:55:43.314  2844  3043 W *** RAM availability: 0.5862097074715856
+09-28 09:55:43.333  1313  1313 W SurfaceFlinger: couldn't log to binary event log: overflow.
+09-28 09:55:43.388  1313  1328 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 2650112
+09-28 09:55:43.396  1313  1313 E EGL_emulation: tid 1313: eglCreateSyncKHR(1881): error 0x3004 (EGL_BAD_ATTRIBUTE)
+09-28 09:55:43.426 20483 20524 W art     : Long monitor contention with owner Binder:20483_B (21182) at android.graphics.Bitmap com.android.server.wm.WindowManagerService.screenshotApplicationsInner(android.os.IBinder, int, int, int, boolean, float, android.graphics.Bitmap$Config, boolean)(WindowManagerService.java:6462) waiters=0 in void com.android.server.wm.WindowAnimator$1.doFrame(long) for 130ms
+09-28 09:55:43.430 20483 21977 W art     : Long monitor contention with owner Binder:20483_B (21182) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:6916) waiters=0 in void com.android.server.am.ActivityManagerService.activityStopped(android.os.IBinder, android.os.Bundle, android.os.PersistableBundle, java.lang.CharSequence) for 150ms
+09-28 09:55:43.430 20483 20506 W art     : Long monitor contention with owner Binder:20483_B (21182) at void com.android.server.am.ActivityManagerService.activityPaused(android.os.IBinder)(ActivityManagerService.java:6916) waiters=3 in void com.android.server.am.ActivityManagerService.dispatchProcessesChanged() for 146ms
+09-28 09:55:43.435  2844  3043 D MyTimerTask_1: Found current_node: android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.435  2844  3043 I onAccessibilityEvent: Current rep: 5, Current set: 3
+09-28 09:55:43.435  2844  3043 I onAccessibilityEvent: CURRENT_STEP is now 5
+09-28 09:55:43.435  2844  3043 D MyTimerTask_1: TimerCallback: We have found a current_root and begin writing the XML now
+09-28 09:55:43.435  2844  3043 W XMLdumper: startFile called, but a file is already being processed
+09-28 09:55:43.435  2844  3043 V XMLdumper: setSource called, old: ; new: Timer
+09-28 09:55:43.435  2844  3043 D MyTimerTask_1: TimerCallback: Calling injectEventCaller
+09-28 09:55:43.435  2844  3043 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.435  2844  3043 I MyTimerTask_1: Started MyTimerTask:injectEventCaller with node android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.435  2844  3043 D EventInjector_1: Started EventInjector.inject
+09-28 09:55:43.435  2844  3043 D EventInjector_1: Discarded package com.google.android.gm as it does not equal subreddit.android.appstore
+09-28 09:55:43.435  2844  3043 V XMLdumper: writeEvent called with Timer, 34, Back
+09-28 09:55:43.436  2844  3043 D XMLdumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80017ca2; boundsInParent: Rect(0, 0 - 1080, 1533); boundsInScreen: Rect(1080, 72 - 1080, 1605); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.436  2844  3043 D XMLdumper: Cleaning up.
+09-28 09:55:43.436  2844  3043 V XMLdumper: setSource called, old: Timer; new: 
+09-28 09:55:43.445  2844  3043 D MyTimerTask_1: Starting new timer
+09-28 09:55:43.446  2844  3045 W *** RAM availability: 0.586213589218061
+09-28 09:55:43.449  2844  3062 D MyTimerTask_1: TimerCallback called.
+09-28 09:55:43.449  2844  3062 V MyTimerTask_1: Locking.
+09-28 09:55:43.453  2844  3045 D MyTimerTask_1: Found current_node: android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.453  2844  3045 I onAccessibilityEvent: Current rep: 6, Current set: 3
+09-28 09:55:43.453  2844  3045 I onAccessibilityEvent: CURRENT_STEP is now 6
+09-28 09:55:43.453  2844  3045 D MyTimerTask_1: TimerCallback: We have found a current_root and begin writing the XML now
+09-28 09:55:43.453  2844  3045 W XMLdumper: startFile called, but a file is already being processed
+09-28 09:55:43.453  2844  3045 V XMLdumper: setSource called, old: ; new: Timer
+09-28 09:55:43.453  2844  3045 D MyTimerTask_1: TimerCallback: Calling injectEventCaller
+09-28 09:55:43.453  2844  3045 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.453  2844  3045 I MyTimerTask_1: Started MyTimerTask:injectEventCaller with node android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.453  2844  3045 D EventInjector_1: Started EventInjector.inject
+09-28 09:55:43.453  2844  3045 D EventInjector_1: Discarded package com.google.android.gm as it does not equal subreddit.android.appstore
+09-28 09:55:43.454  2844  3045 V XMLdumper: writeEvent called with Timer, 35, Back
+09-28 09:55:43.455  2844  3045 D XMLdumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80017ca2; boundsInParent: Rect(0, 0 - 1080, 1533); boundsInScreen: Rect(1080, 72 - 1080, 1605); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.455  2844  3045 D XMLdumper: Cleaning up.
+09-28 09:55:43.455  2844  3045 V XMLdumper: setSource called, old: Timer; new: 
+09-28 09:55:43.456  2844  3045 D MyTimerTask_1: Starting new timer
+09-28 09:55:43.463  2844  3057 W *** RAM availability: 0.58599621141544
+09-28 09:55:43.463  2844  3045 V MyTimerTask_1: Unlocked.
+09-28 09:55:43.468  2844  3043 V MyTimerTask_1: Unlocked.
+09-28 09:55:43.499  2844  3064 D MyTimerTask_1: TimerCallback called.
+09-28 09:55:43.499  2844  3064 V MyTimerTask_1: Locking.
+09-28 09:55:43.522  2844  3068 D MyTimerTask_1: TimerCallback called.
+09-28 09:55:43.522  2844  3068 V MyTimerTask_1: Locking.
+09-28 09:55:43.522  2844  3057 D MyTimerTask_1: Found current_node: android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.523  2844  3057 I onAccessibilityEvent: Current rep: 7, Current set: 3
+09-28 09:55:43.523  2844  3057 I onAccessibilityEvent: CURRENT_STEP is now 7
+09-28 09:55:43.523  2844  3057 D MyTimerTask_1: TimerCallback: We have found a current_root and begin writing the XML now
+09-28 09:55:43.523  2844  3057 W XMLdumper: startFile called, but a file is already being processed
+09-28 09:55:43.523  2844  3057 V XMLdumper: setSource called, old: ; new: Timer
+09-28 09:55:43.523  2844  3057 D MyTimerTask_1: TimerCallback: Calling injectEventCaller
+09-28 09:55:43.523  2844  3057 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.523  2844  3057 I MyTimerTask_1: Started MyTimerTask:injectEventCaller with node android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.523  2844  3057 D EventInjector_1: Started EventInjector.inject
+09-28 09:55:43.523  2844  3057 D EventInjector_1: Discarded package com.google.android.gm as it does not equal subreddit.android.appstore
+09-28 09:55:43.523  2844  3057 V XMLdumper: writeEvent called with Timer, 36, Back
+09-28 09:55:43.524  2844  3057 D XMLdumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80017ca2; boundsInParent: Rect(0, 0 - 1080, 1533); boundsInScreen: Rect(1080, 72 - 1080, 1605); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.524  2844  3057 D XMLdumper: Cleaning up.
+09-28 09:55:43.524  2844  3057 V XMLdumper: setSource called, old: Timer; new: 
+09-28 09:55:43.636 20483 20631 W art     : Long monitor contention with owner Binder:20483_C (21183) at boolean com.android.server.accessibility.AccessibilityManagerService.sendAccessibilityEvent(android.view.accessibility.AccessibilityEvent, int)(AccessibilityManagerService.java:455) waiters=0 in boolean com.android.server.accessibility.AccessibilityManagerService.sendAccessibilityEvent(android.view.accessibility.AccessibilityEvent, int) for 168ms
+09-28 09:55:43.636  2844  3057 D MyTimerTask_1: Starting new timer
+09-28 09:55:43.637  2844  3057 V MyTimerTask_1: Unlocked.
+09-28 09:55:43.637  2844  2844 W *** RAM availability: 0.5857633066269176
+09-28 09:55:43.637  2844  2844 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.637  2844  2844 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.637  2844  2844 I onAccessibilityEvent: Current rep: 8, Current set: 3
+09-28 09:55:43.637  2844  2844 I onAccessibilityEvent: CURRENT_STEP is now 8
+09-28 09:55:43.637  2844  2844 W XMLdumper: startFile called, but a file is already being processed
+09-28 09:55:43.637  2844  2844 V XMLdumper: setSource called, old: ; new: Accessibility
+09-28 09:55:43.638  2844  2844 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.638  2844  2844 I MyTimerTask_1: Started MyTimerTask:injectEventCaller with node android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.638  2844  2844 D EventInjector_1: Started EventInjector.inject
+09-28 09:55:43.638  2844  2844 D EventInjector_1: Discarded package com.google.android.gm as it does not equal subreddit.android.appstore
+09-28 09:55:43.640  2844  2844 V XMLdumper: writeEvent called with Accessibility, 37, Back
+09-28 09:55:43.640  2844  2844 D XMLdumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80017ca2; boundsInParent: Rect(0, 0 - 1080, 1533); boundsInScreen: Rect(1080, 72 - 1080, 1605); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.640  2844  2844 D XMLdumper: Cleaning up.
+09-28 09:55:43.641  2844  2844 V XMLdumper: setSource called, old: Accessibility; new: 
+09-28 09:55:43.641  2844  2844 D MyTimerTask_1: Starting new timer
+09-28 09:55:43.642  2844  2844 V onAccessibilityEvent: Unlocked.
+09-28 09:55:43.647  2844  3070 D MyTimerTask_1: TimerCallback called.
+09-28 09:55:43.647  2844  3070 V MyTimerTask_1: Locking.
+09-28 09:55:43.647  2844  3062 W *** RAM availability: 0.5857633066269176
+09-28 09:55:43.650  2844  2844 I onAccessibilityEvent: ********** New Event received: EventType: TYPE_WINDOW_STATE_CHANGED; EventTime: 75213037; PackageName: subreddit.android.appstore; MovementGranularity: 0; Action: 0 [ ClassName: subreddit.android.appstore.screens.MainActivity; Text: [/r/Android App store]; ContentDescription: null; ItemCount: -1; CurrentItemIndex: -1; IsEnabled: true; IsPassword: false; IsChecked: false; IsFullScreen: true; Scrollable: false; BeforeText: null; FromIndex: -1; ToIndex: -1; ScrollX: -1; ScrollY: -1; MaxScrollX: -1; MaxScrollY: -1; AddedCount: -1; RemovedCount: -1; ParcelableData: null ]; recordCount: 0
+09-28 09:55:43.650  2844  2844 V onAccessibilityEvent: Locking.
+09-28 09:55:43.667  2864  2885 D EGL_emulation: eglMakeCurrent: 0x9ae07e80: ver 2 0 (tinfo 0xa6074ae0)
+09-28 09:55:43.672  2844  3072 D MyTimerTask_1: TimerCallback called.
+09-28 09:55:43.672  2844  3072 V MyTimerTask_1: Locking.
+09-28 09:55:43.798 20483 21165 W art     : Long monitor contention with owner android.display (20524) at void com.android.server.wm.WindowAnimator$1.doFrame(long)(WindowAnimator.java:144) waiters=1 in boolean com.android.server.wm.Session.getInTouchMode() for 144ms
+09-28 09:55:43.837  2844  3074 D MyTimerTask_1: TimerCallback called.
+09-28 09:55:43.837  2844  3074 V MyTimerTask_1: Locking.
+09-28 09:55:43.841  2844  3076 D MyTimerTask_1: TimerCallback called.
+09-28 09:55:43.841  2844  3076 V MyTimerTask_1: Locking.
+09-28 09:55:43.854 20483 20980 W art     : Long monitor contention with owner android.display (20524) at void com.android.server.wm.WindowAnimator$1.doFrame(long)(WindowAnimator.java:144) waiters=1 in android.view.MagnificationSpec com.android.server.wm.WindowManagerService$LocalService.getCompatibleMagnificationSpecForWindow(android.os.IBinder) for 140ms
+09-28 09:55:43.985  2844  3062 D MyTimerTask_1: Found current_node: android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.985  2844  3062 I onAccessibilityEvent: Current rep: 9, Current set: 3
+09-28 09:55:43.985  2844  3062 I onAccessibilityEvent: CURRENT_STEP is now 9
+09-28 09:55:43.985  2844  3062 D MyTimerTask_1: TimerCallback: We have found a current_root and begin writing the XML now
+09-28 09:55:43.985  2844  3062 W XMLdumper: startFile called, but a file is already being processed
+09-28 09:55:43.985  2844  3062 V XMLdumper: setSource called, old: ; new: Timer
+09-28 09:55:43.985  2844  3062 D MyTimerTask_1: TimerCallback: Calling injectEventCaller
+09-28 09:55:43.985  2844  3062 D MyTimerTask_1: Canceled timer.
+09-28 09:55:43.985  2844  3062 I MyTimerTask_1: Started MyTimerTask:injectEventCaller with node android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.985  2844  3062 D EventInjector_1: Started EventInjector.inject
+09-28 09:55:43.985  2844  3062 D EventInjector_1: Discarded package com.google.android.gm as it does not equal subreddit.android.appstore
+09-28 09:55:43.986  2844  3062 V XMLdumper: writeEvent called with Timer, 38, Back
+09-28 09:55:43.987  2844  3062 D XMLdumper: Skipping invisible child: android.view.accessibility.AccessibilityNodeInfo@80017ca2; boundsInParent: Rect(0, 0 - 1080, 1533); boundsInScreen: Rect(1080, 72 - 1080, 1605); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:43.987  2844  3062 D XMLdumper: Cleaning up.
+09-28 09:55:43.987  2844  3062 V XMLdumper: setSource called, old: Timer; new: 
+09-28 09:55:43.990  2844  3062 D MyTimerTask_1: Starting new timer
+09-28 09:55:43.991  2844  3064 W *** RAM availability: 0.5856002732749519
+09-28 09:55:43.991  2844  3062 V MyTimerTask_1: Unlocked.
+09-28 09:55:44.105 20483 20524 W art     : Long monitor contention with owner Binder:20483_2 (20499) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.content.res.Configuration, android.view.Surface)(WindowManagerService.java:2850) waiters=0 in void com.android.server.wm.WindowAnimator$1.doFrame(long) for 124ms
+09-28 09:55:44.112  2844  3064 D MyTimerTask_1: Found current_node: android.view.accessibility.AccessibilityNodeInfo@80014f96; boundsInParent: Rect(0, 0 - 1080, 1920); boundsInScreen: Rect(0, 0 - 1080, 1920); packageName: com.google.android.gm; className: android.widget.FrameLayout; text: null; error: null; maxTextLength: -1; contentDescription: null; viewIdResName: null; checkable: false; checked: false; focusable: false; focused: false; selected: false; clickable: false; longClickable: false; contextClickable: false; enabled: true; password: false; scrollable: false; actions: [AccessibilityAction: ACTION_SELECT - null, AccessibilityAction: ACTION_CLEAR_SELECTION - null, AccessibilityAction: ACTION_ACCESSIBILITY_FOCUS - null, AccessibilityAction: ACTION_SHOW_ON_SCREEN - null]
+09-28 09:55:44.112  2844  3064 I onAccessibilityEvent: Current rep: 10, Current set: 3
+09-28 09:55:44.112  2844  3064 W onAccessibilityEvent: Maximum reps reached. This was set 3
+09-28 09:55:44.112  2844  3064 D MyTimerTask_1: Canceled timer.
+09-28 09:55:44.112  2844  3064 D MyTimerTask_1: Canceled timer.
+09-28 09:55:44.112  2844  3064 W onAccessibilityEvent: Did not clear application data, as root is not available.
+09-28 09:55:44.112  2844  3064 V XMLdumper: endFile called
+09-28 09:55:44.113  2844  3064 I onAccessibilityEvent: Writing logcat to file.
