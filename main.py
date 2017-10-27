@@ -114,7 +114,9 @@ def insertIntoDB(xml_appl):
 	db.commit()
 	db.close()
 
-
+def createDatabase():
+	# TODO: Implement
+	pass
 
 # This method takes the XML and updates the database with new apps
 def updateDatabase():
@@ -176,8 +178,20 @@ def downloadAPKs():
 			setAvailableValueInDB(appid, versioncode, "yes")
 		hash_calc = sha256_checksum(apkDirFull)
 		if hash_calc != hash_DB:
-			print("Hashes for", apkDirFull, "do not match!", hash_calc, hash_DB)
-			# TODO: Add some error handling here
+			print("Hashes for", apkDirFull, "do not match! Retrying ...", hash_calc, hash_DB)
+			try:
+				urllib.request.urlretrieve(url, apkDirFull)
+				pass
+			except urllib.error.HTTPError as e:
+				print(e)
+				if e.code == 404:
+					setAvailableValueInDB(appid, versioncode, "no")
+					continue
+			hash_calc = sha256_checksum(apkDirFull)
+			if hash_calc != hash_DB:
+				print("Hashes still do not match, skipping this app!")
+				setAvailableValueInDB(appid, versioncode, "no")
+				# TODO: apk löschen
 
 def sha256_checksum(filename, block_size=65536):
 	sha256 = hashlib.sha256()
@@ -250,6 +264,7 @@ def main(argv):
 	# 	outputfile = arg
 
 	pullIndexXML()
+	createDatabase()
 	updateDatabase()
 	downloadAPKs()
 	prepareFuzzing()
