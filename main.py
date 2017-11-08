@@ -117,8 +117,22 @@ def insertIntoDB(xml_appl):
 	db.close()
 
 def createDatabase():
-	# TODO: Implement
-	pass
+	if os.path.isfile(PATH_DATABASE):
+		print("Database file seems to already exist in", PATH_DATABASE)
+		return
+		
+	db = sqlite3.connect(PATH_DATABASE)
+	cursor = db.cursor()
+	cursor.execute('''CREATE TABLE "apps" (`appid` TEXT,`version` TEXT,`added` TEXT,
+`lastupdated` TEXT,`name` TEXT,`summary` TEXT,`desc` TEXT,`license` TEXT,`categories` TEXT,
+`category` TEXT,`source` TEXT,`tracker` TEXT,`marketversion` TEXT,`marketvercode` TEXT,
+`antifeatures` TEXT,`versioncode` INTEGER,`apkname` TEXT,`srcname` TEXT,`hash` TEXT,
+`hashtype` TEXT,`size` INTEGER,`sdkver` INTEGER,`targetSdkVersion` INTEGER,`added_version` INTEGER,
+`sig` TEXT,`permissions` TEXT,`nativecode` TEXT, PRIMARY KEY(appid,versioncode))''');
+	cursor.execute('''CREATE TABLE "results" (`resultsid` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+`appid`	TEXT, `versioncode` INTEGER, `timestamp` TEXT, `result` TEXT)''')
+	db.commit()
+	db.close()
 
 # This method takes the XML and updates the database with new apps
 def updateDatabase():
@@ -155,6 +169,18 @@ def setAvailableValueInDB(appid, versioncode, value):
 	db.commit()
 	db.close()
 
+# Downloads an APK
+# Returns True if successful, False otherwise
+def downloadAPK(url, targetDir, appid, versioncode):
+	try:
+		urllib.request.urlretrieve(url, targetDir)
+		return True
+	except urllib.error.HTTPError as e:
+		print(e)
+		if e.code == 404:
+			setAvailableValueInDB(appid, versioncode, "no")
+			return False
+
 def downloadAPKs():
 	print("Downloading apks ...")
 	apks = getTableFromDB("apks")
@@ -166,34 +192,20 @@ def downloadAPKs():
 		available = apk[27]
 		apkDirFull = PATH_APKDIR + apkName
 		hash_DB = apk[18]
+
 		if not os.path.isfile(apkDirFull) and available != "no":
 			print("Need to download " + apkName)
 			url = URL_FDROID + apkName
-			try:
-				urllib.request.urlretrieve(url, apkDirFull)
-				pass
-			except urllib.error.HTTPError as e:
-				print(e)
-				if e.code == 404:
-					setAvailableValueInDB(appid, versioncode, "no")
-					continue
+			if not downloadAPK(url, apkDirFull, appid, versioncode): continue
 			setAvailableValueInDB(appid, versioncode, "yes")
-		hash_calc = sha256_checksum(apkDirFull)
-		if hash_calc != hash_DB:
+
+		if sha256_checksum(apkDirFull) != hash_DB:
 			print("Hashes for", apkDirFull, "do not match! Retrying ...", hash_calc, hash_DB)
-			try:
-				urllib.request.urlretrieve(url, apkDirFull)
-				pass
-			except urllib.error.HTTPError as e:
-				print(e)
-				if e.code == 404:
-					setAvailableValueInDB(appid, versioncode, "no")
-					continue
-			hash_calc = sha256_checksum(apkDirFull)
-			if hash_calc != hash_DB:
+			downloadAPK(url, apkDirFull, appid, versioncode)
+			if sha256_checksum(apkDirFull) != hash_DB:
 				print("Hashes still do not match, skipping this app!")
 				setAvailableValueInDB(appid, versioncode, "no")
-				# TODO: apk löschen
+				os.remove(apkDirFull)
 
 def sha256_checksum(filename, block_size=65536):
 	sha256 = hashlib.sha256()
@@ -231,20 +243,6 @@ def printHelp():
 
 def setupTestEnvironment():
 	print("Using test environment.")
-	global PATH_DATABASE
-	PATH_DATABASE = scriptPath + "/test/data/db.sqlite"
-	global PATH_INDEXJAR
-	PATH_INDEXJAR = scriptPath + "/test/data/index.jar"
-	global PATH_INDEXXML
-	PATH_INDEXXML = scriptPath + "/test/data/index.xml"
-	global PATH_APKDIR
-	PATH_APKDIR = scriptPath + "/test/apks/"
-	global PATH_APKLISTTXT
-	PATH_APKLISTTXT = scriptPath + "/test/apklist.txt"
-	global PATH_WRAPPERSCRIPT
-	PATH_WRAPPERSCRIPT = scriptPath + "/test/test_apks.sh"
-	# URL_FDROID = "https://f-droid.org/repo/"
-
 	global IS_TEST
 	IS_TEST = True
 
