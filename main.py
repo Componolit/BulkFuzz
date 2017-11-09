@@ -14,10 +14,11 @@ def getScriptPath():
 
 scriptPath = getScriptPath()
 
+PATH_DIR_DATA = scriptPath + '/data/'
 PATH_DATABASE = scriptPath + '/data/db.sqlite'
 PATH_INDEXJAR = scriptPath + '/data/index.jar'
 PATH_INDEXXML = scriptPath + '/data/index.xml'
-PATH_APKDIR = scriptPath + '/apks/'
+PATH_DIR_APK = scriptPath + '/apks/'
 PATH_APKLISTTXT = scriptPath + "/apklist.txt"
 PATH_WRAPPERSCRIPT = scriptPath + "/test_apks.sh"
 URL_FDROID = "https://f-droid.org/repo/"
@@ -198,7 +199,7 @@ def downloadAPKs():
         versioncode = apk[1]
         apkName = apk[16]
         available = apk[27]
-        apkDirFull = PATH_APKDIR + apkName
+        apkDirFull = PATH_DIR_APK + apkName
         hash_DB = apk[18]
 
         if not os.path.isfile(apkDirFull) and available != "no":
@@ -228,7 +229,7 @@ def prepareFuzzing():
     
     apkList = getListToTest()
     for apk in apkList:
-        apkPath = PATH_APKDIR + apk[0]
+        apkPath = PATH_DIR_APK + apk[0]
         print(apkPath)
         with open(PATH_APKLISTTXT, "a") as f:
             f.write(apkPath + "\n")
@@ -263,6 +264,16 @@ def setupTestEnvironment():
     silentremove(PATH_INDEXJAR)
     silentremove(PATH_INDEXXML)
 
+def silentMkdir(dirname):
+    try:
+        os.mkdir(dirname)
+    except FileExistsError as e:
+        pass
+
+def setupEnvironment():
+    silentMkdir(PATH_DIR_DATA)
+    silentMkdir(PATH_DIR_APK)
+
 def main(argv):
     try:
           opts, args = getopt.getopt(argv,"ht",["help","test"])
@@ -278,6 +289,7 @@ def main(argv):
     # elif opt in ("-o", "--ofile"):
     #   outputfile = arg
 
+    setupEnvironment()
     pullIndexXML()
     createDatabase()
     updateDatabase()
