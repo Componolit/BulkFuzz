@@ -21,13 +21,13 @@ appfuzzer_packagename="com.example.link.appfuzzer"
 MAIN_ACTIVITY="MainActivity"
 DEBUG=1             # Debug level, can be 0 (no debug output) or 1.
 PULL_LOGS=true      # If true, pull logs from device to logs/.
-threshold=180       # Time in seconds until the appfuzzer starts with the next app.
+threshold=60       # Time in seconds until the appfuzzer starts with the next app.
 RESET_STORAGE=1     # Specify if the sd card should be reset between apps. Can be 0 (disabled) or 1 (enabled).
 
 username="MyUsername1"
 password="MyPassword1"
 max_reps=10
-max_sets=4
+max_sets=2
 launcher_package_name=""                # If left blank, will be determined automatically
 url="https://dud.inf.tu-dresden.de"
 timeout=200                             # Time in ms until the Timer kicks in
@@ -41,13 +41,15 @@ backbutton_press_chance=0.1
 # How to execute ADB shell su root
 ADB_SH="adb shell su root"
 
+# TODO: Get timestamp from command line(?)
+timestamp="1338"
+
 
 # ****** DO NOT CHANGE ANYTHING BELOW THIS LINE
 
 # Detect adb devices
-deviceCount=$(adb devices -l | wc -l)
-if [[ $deviceCount -gt 3 ]]; then
-    echo "Detected more then one device! Please disconnect all devices except the one to test or edit ADB_SH to point to your device."
+if [[ $(adb devices | wc -l) -ge 4 ]]; then 
+    echo "Detected more than one device! Please disconnect all devices except the one to test or edit ADB_SH to point to your device."
     exit 1
 fi
 
@@ -209,6 +211,7 @@ ${ADB_SH_BB} "rm -rf ${appfuzzer_basedir}.*"
 
 for apk in `cat apklist.txt`; do
     package_name=`aapt dump badging "$apk" | grep "package: name" | cut -d"'" -f 2` || true
+    version_code=`aapt dump badging "$apk" | grep "versionCode" | cut -d"'" -f 4` || true
     dir_package_name_done="${appfuzzer_basedir}${package_name}.done"
     dir_package_name_failed="${appfuzzer_basedir}${package_name}.failed"
     if [[ DEBUG -eq 1 ]]; then echo "Packagename: $package_name"; fi
@@ -234,13 +237,13 @@ for apk in `cat apklist.txt`; do
             echo "Could not install $apk due to unsupported architecture, proceeding with next." 
             failed_to_install=$((failed_to_install + 1)) 
             echo "Failed_to_install: $failed_to_install" 
-            echo "$package_name" >> logs/packagelist_failed_to_install_unsupported_arch
+            echo "${package_name}_${version_code}" >> logs/packagelist_failed_to_install_unsupported_arch
             continue  
         elif [[ $res_adbInstall != *"Success"* ]]; then
             echo "Could not install $apk due to an unknown error, proceeding with next." 
             failed_to_install=$((failed_to_install + 1)) 
             echo "Failed_to_install: $failed_to_install" 
-            echo "$package_name" >> logs/packagelist_failed_to_install_unknown_error
+            echo "${package_name}_${version_code}" >> logs/packagelist_failed_to_install_unknown_error
             continue  
         fi
     fi
@@ -328,12 +331,13 @@ for apk in `cat apklist.txt`; do
 
     # Pull logs
     if [ "$PULL_LOGS" = true ]; then
+        mkdir -p "logs/${package_name}/${version_code}/${timestamp}"
         for i in `seq 0 1 "$PULL_LOGS_SETS"`; do
-            ${ADB_SH} cat ${appfuzzer_basedir}${package_name}${i} > logs/${package_name}${i} || true
+            ${ADB_SH} cat ${appfuzzer_basedir}${package_name}${i} > logs/${package_name}/${version_code}/${timestamp}/${i}.xml || true
             if [[ DEBUG -eq 1 ]]; then echo "Pulled ${appfuzzer_basedir}${package_name}${i}"; fi
             ${ADB_SH} rm ${appfuzzer_basedir}${package_name}${i} || true
 
-            ${ADB_SH} cat ${appfuzzer_basedir}${package_name}${i}_logcat > logs/${package_name}${i}_logcat || true
+            ${ADB_SH} cat ${appfuzzer_basedir}${package_name}${i}_logcat > logs/${package_name}/${version_code}/${timestamp}/${i}.logcat || true
             if [[ DEBUG -eq 1 ]]; then echo "Pulled ${appfuzzer_basedir}${package_name}${i}_logcat"; fi
             ${ADB_SH} rm ${appfuzzer_basedir}${package_name}${i}_logcat || true
         done
@@ -348,24 +352,24 @@ for apk in `cat apklist.txt`; do
         # We check whether the target threw an exception or not
         # For this we check occurences of a stacktrace in the logcat
         set +e
-        egrep ".*System.err.*$package_name" logs/"${package_name}"*_logcat > /dev/null
+        egrep ".*System.err.*$package_name" "logs/${package_name}/${version_code}/${timestamp}/"*.logcat > /dev/null
         res=$?
         set -e
         if [[ res -ne 0 ]]; then
             successful=$((successful + 1)) 
             echo "This package was successful."
-            echo "$package_name" >> logs/packagelist_successful 
+            echo "${package_name}_${version_code}" >> logs/packagelist_successful 
         else
             successful_crash=$((successful_crash + 1)) 
             echo "This package was successful, but the app crashed."
-            echo "$package_name" >> logs/packagelist_successful_crash 
+            echo "${package_name}_${version_code}" >> logs/packagelist_successful_crash 
         fi
     elif [[ $RESULT_CODE -eq 1 ]]; then 
         failed_to_start=$((failed_to_start + 1))
-        echo "$package_name" >> logs/packagelist_failed_to_start
+        echo "${package_name}_${version_code}" >> logs/packagelist_failed_to_start
     elif [[ $RESULT_CODE -eq 2 ]]; then
         failed_timeout=$((failed_timeout + 1))
-        echo "$package_name" >> logs/packagelist_failed_timeout
+        echo "${package_name}_${version_code}" >> logs/packagelist_failed_timeout
     else
         echo "Bad RESULT_CODE! It is $RESULT_CODE."
         exit 1

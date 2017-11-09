@@ -8,6 +8,7 @@ import xml.etree.ElementTree as etree
 import urllib.request
 import zipfile
 import subprocess
+import shutil
 
 def getScriptPath():
         return os.path.dirname(os.path.realpath(sys.argv[0]))
@@ -255,6 +256,8 @@ def silentremove(filename):
         os.remove(filename)
     except FileNotFoundError as e:
         pass
+    except IsADirectoryError as e:
+        shutil.rmtree(filename)
 
 def setupTestEnvironment():
     print("Using test environment.")
@@ -263,6 +266,8 @@ def setupTestEnvironment():
     silentremove(PATH_DATABASE)
     silentremove(PATH_INDEXJAR)
     silentremove(PATH_INDEXXML)
+    silentremove("logs/")
+    silentremove("results/")
 
 def silentMkdir(dirname):
     try:
@@ -295,10 +300,8 @@ def main(argv):
     updateDatabase()
     downloadAPKs()
     prepareFuzzing()
-    # callWrapperScript()
-    # TODO: Move apks into a to-test directory (?)
-    # TODO: Call worker script to test apks
-    # TODO: ...
+    callWrapperScript()
+    # updateDB
 
 if __name__ == '__main__':
     main(sys.argv[1:])
