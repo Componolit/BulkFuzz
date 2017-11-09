@@ -129,7 +129,7 @@ def createDatabase():
 `category` TEXT,`source` TEXT,`tracker` TEXT,`marketversion` TEXT,`marketvercode` TEXT,
 `antifeatures` TEXT,`versioncode` INTEGER,`apkname` TEXT,`srcname` TEXT,`hash` TEXT,
 `hashtype` TEXT,`size` INTEGER,`sdkver` INTEGER,`targetSdkVersion` INTEGER,`added_version` INTEGER,
-`sig` TEXT,`permissions` TEXT,`nativecode` TEXT, PRIMARY KEY(appid,versioncode))''');
+`sig` TEXT,`permissions` TEXT,`nativecode` TEXT, `available` TEXT, PRIMARY KEY(appid,versioncode))''');
     cursor.execute('''CREATE TABLE "results" (`resultsid` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 `appid` TEXT, `versioncode` INTEGER, `timestamp` TEXT, `result` TEXT)''')
     db.commit()
@@ -139,9 +139,9 @@ def createDatabase():
 def updateDatabase():
     tree = etree.parse(PATH_INDEXXML)
     root = tree.getroot()
-    for i in range(len(root)):
-        print(root[i].attrib, len(root[i]))
-        insertIntoDB(root[i])
+    for application in root.findall("application"):
+        print(application.attrib)
+        insertIntoDB(application)
 
 def pullIndexXML():
     print("Downloading index.jar ...")
@@ -156,7 +156,7 @@ def pullIndexXML():
         root = tree.getroot()
         for application in root.findall("application"):
             t -= 1
-            if t <= 0:
+            if t < 0:
                 root.remove(application)
         tree.write(PATH_INDEXXML)
 
