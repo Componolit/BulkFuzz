@@ -35,16 +35,18 @@ class Progress:
 
     def update(self, filename, written, total):
 
-        if filename != self._file:
-            if self._progress != None:
-                self._progress.close()
-            self._file = filename
-            self._progress = tqdm (total = total, desc = "Installing %s" % filename, unit = "bytes")
+        try:
+            if filename != self._file:
+                if self._progress != None:
+                    self._progress.close()
+                self._file = filename
+                self._progress = tqdm (total = total, desc = "Installing %s" % os.path.basename (filename), unit = "B", unit_scale = True)
 
-        delta = written - self._last
-        self._last = written
-        #print("%s/%s" % (written, total))
-        self._progress.update(delta)
+            delta = written - self._last
+            self._last = written
+            self._progress.update(delta)
+        except Exception as e:
+            print ("Exception in update callback: %s" % str(e))
 
     def close(self):
         if self._progress:
@@ -70,7 +72,6 @@ class Fuzzer:
         self._progressbar.close()
 
     def run (self):
-        print ("Fuzzing %s (version %s)" % (self._manifest['@package'], self._manifest['@android:versionCode']))
         self._device.Install(self._filename, transfer_progress_callback=self._progressbar.update)
 
 device = ADB("192.168.84.93").device()
