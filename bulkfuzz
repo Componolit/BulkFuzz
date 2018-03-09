@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+
+import os.path
+
+from pathlib import Path
+from apkutils import APK
+from tqdm import tqdm
+
+from adb import adb_commands
+from adb import common
+from adb import sign_m2crypto
+
+appfuzzer_packagename = "com.example.link.appfuzzer"
+appfuzzer_basedir = "/data/data/%s/files/" % appfuzzer_packagename
+
+class ADB:
+
+    def __init__(self, ip, port=5555):
+
+        signer = sign_m2crypto.M2CryptoSigner(os.path.expanduser('~/.android/adbkey'))
+        commands = adb_commands.AdbCommands()
+
+        # Connect to the device
+        self._device = commands.ConnectDevice(serial=str.encode('%s:%s'%(ip, port)), rsa_keys=[signer])
+
+    def device(self):
+        return self._device
+
+class Progress:
+
+    def __init__(self):
+        self._progress = None
+        self._file = None
+        self._last = 0
+
+    def update(self, filename, written, total):
+
+        if filename != self._file:
+            if self._progress != None:
+                self._progress.close()
+            self._file = filename
+            self._progress = tqdm (total = total, desc = "Installing %s" % filename, unit = "bytes")
+
+        delta = written - self._last
+        self._last = written
+        #print("%s/%s" % (written, total))
+        self._progress.update(delta)
+
+    def close(self):
+        if self._progress:
+            self._progress.close()
+
+class Fuzzer:
+
+    def __init__ (self, device, filename):
+        self._device      = device
+        self._filename    = filename
+        self._progressbar = None
+
+        apk = APK(self._filename)
+        self._manifest = apk.get_manifest()
+        if not '@android:versionCode' in self._manifest:
+            raise Exception ("Invalid manifest for %s" % self._filename)
+
+    def __enter__(self):
+        self._progressbar = Progress()
+        return self
+
+    def __exit__(self, *args):
+        self._progressbar.close()
+
+    def run (self):
+        print ("Fuzzing %s (version %s)" % (self._manifest['@package'], self._manifest['@android:versionCode']))
+        self._device.Install(self._filename, transfer_progress_callback=self._progressbar.update)
+
+device = ADB("192.168.84.93").device()
+#packages = device.Shell('pm list packages')
+# print (device.Shell('uname -a'))
+# print(str(packages))
+
+#pathlist = Path("apks").glob('*.apk')
+pathlist = ["apks/org.kontalk_246.apk"]
+
+for path in [str(p) for p in pathlist]:
+
+    with Fuzzer (device, path) as fuzzer:
+        fuzzer.run()
