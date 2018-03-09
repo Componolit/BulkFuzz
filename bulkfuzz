@@ -64,11 +64,15 @@ class Fuzzer:
         if not '@android:versionCode' in self._manifest:
             raise Exception ("Invalid manifest for %s" % self._filename)
 
+        self._version_code = self._manifest['@android:versionCode']
+        self._package      = self._manifest['@package']
+
     def __enter__(self):
         self._progressbar = Progress()
         return self
 
     def __exit__(self, *args):
+        self._device.Uninstall(self._package)
         self._progressbar.close()
 
     def run (self):
