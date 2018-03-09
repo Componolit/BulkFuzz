@@ -58,10 +58,15 @@ class Result(Enum):
     MANIFEST_ERROR     = 2
     INSTALLATION_ERROR = 3
 
+class Config:
+
+    def __init__ (self, host, port=5555):
+        self.device = ADB(host, port).device()
+
 class Fuzzer:
 
-    def __init__ (self, device, filename):
-        self._device      = device
+    def __init__ (self, config, filename):
+        self._config      = config
         self._filename    = filename
         self._progressbar = None
 
@@ -70,7 +75,7 @@ class Fuzzer:
         return self
 
     def __exit__(self, *args):
-        self._device.Uninstall(self._package)
+        self._config.device.Uninstall(self._package)
         self._progressbar.close()
 
     def run (self):
@@ -84,13 +89,14 @@ class Fuzzer:
         self._package      = self._manifest['@package']
 
         try:
-            self._device.Install(self._filename, transfer_progress_callback=self._progressbar.update)
+            self._config.device.Install(self._filename, transfer_progress_callback=self._progressbar.update)
         except:
             return Result.INSTALLATION_ERROR
 
         return Result.OK
 
-device = ADB("192.168.84.93").device()
+config = Config(host = "192.168.84.93")
+
 #packages = device.Shell('pm list packages')
 # print (device.Shell('uname -a'))
 # print(str(packages))
@@ -100,5 +106,5 @@ pathlist = ["apks/org.kontalk_246.apk"]
 
 for path in [str(p) for p in pathlist]:
 
-    with Fuzzer (device, path) as fuzzer:
+    with Fuzzer (config, path) as fuzzer:
         fuzzer.run()
