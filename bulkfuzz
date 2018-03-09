@@ -2,6 +2,7 @@
 
 import os.path
 
+from enum import Enum
 from pathlib import Path
 from apkutils import APK
 from tqdm import tqdm
@@ -52,20 +53,17 @@ class Progress:
         if self._progress:
             self._progress.close()
 
+class Result(Enum):
+    OK                 = 1
+    MANIFEST_ERROR     = 2
+    INSTALLATION_ERROR = 3
+
 class Fuzzer:
 
     def __init__ (self, device, filename):
         self._device      = device
         self._filename    = filename
         self._progressbar = None
-
-        apk = APK(self._filename)
-        self._manifest = apk.get_manifest()
-        if not '@android:versionCode' in self._manifest:
-            raise Exception ("Invalid manifest for %s" % self._filename)
-
-        self._version_code = self._manifest['@android:versionCode']
-        self._package      = self._manifest['@package']
 
     def __enter__(self):
         self._progressbar = Progress()
@@ -76,7 +74,21 @@ class Fuzzer:
         self._progressbar.close()
 
     def run (self):
-        self._device.Install(self._filename, transfer_progress_callback=self._progressbar.update)
+
+        apk = APK(self._filename)
+        self._manifest = apk.get_manifest()
+        if not '@android:versionCode' in self._manifest:
+            return Result.MANIFEST_ERROR
+
+        self._version_code = self._manifest['@android:versionCode']
+        self._package      = self._manifest['@package']
+
+        try:
+            self._device.Install(self._filename, transfer_progress_callback=self._progressbar.update)
+        except:
+            return Result.INSTALLATION_ERROR
+
+        return Result.OK
 
 device = ADB("192.168.84.93").device()
 #packages = device.Shell('pm list packages')
